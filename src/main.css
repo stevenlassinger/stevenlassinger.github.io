@@ -1,13 +1,15 @@
-html {
-    /* overflow: hidden; */ 
-}
 
 ::-webkit-scrollbar {
     display: none;
 }
 
+body{
+    overflow-x: hidden!important;
+}
+
 :root {
-  --primaryColor: #566bc7;
+  /* --primaryColor: #566bc7; */
+  --primaryColor: linear-gradient(to right, #566bc7 , #8b62de);
   --primaryTextColor: #fff;
 }
 

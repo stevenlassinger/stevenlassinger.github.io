@@ -10,12 +10,16 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
+      meta: { title: 'Steve Lassinger' } 
+
     },
     {
       path: '/Resume',
       name: 'Resume',
-      component: Resume
+      component: Resume,
+      meta: { title: 'Resume' } 
+
     }
   ]
 })
