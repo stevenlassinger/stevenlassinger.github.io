@@ -207,8 +207,7 @@
               width: 40em;
               border: none;
               box-shadow: none;
-              display: none;
-            "
+             "
           >
             <div style="font-size: 2em" class="font-weight-light">
               I've been a fontend/UI developer for the past 3 years. I am
@@ -329,7 +328,10 @@
     </section>
 
     <!-- CONTACT SECTION -->
-    <section class="contact-section" :style="isMobile ? 'margin-bottom: 3em;' : ''">
+    <section
+      class="contact-section"
+      :style="isMobile ? 'margin-bottom: 3em;' : ''"
+    >
       <div
         class="contact-body"
         :style="isMobile ? 'margin-top:0px; height: 80vh;' : ''"
@@ -348,32 +350,37 @@
         <div
           class="elevation-3"
           :class="isMobile ? 'mobile-form-container mt-3' : 'container1 mt-14'"
+          style="background: linear-gradient(to right, #566bc7, #8b62de)"
         >
           <form class="contact-form" @submit.prevent="sendEmail">
-            <label>Name</label>
+            <label style="color: white">Name</label>
             <input
               type="text"
               v-model="name"
               name="name"
               placeholder="Your Name"
+              class="form-input"
             />
-            <label>Email</label>
+            <label style="color: white">Email</label>
             <input
               type="email"
               v-model="email"
               name="email"
               placeholder="Your Email"
+              class="form-input"
             />
-            <label>Message</label>
+            <label style="color: white">Message</label>
             <textarea
               name="message"
               v-model="message"
               cols="30"
               rows="5"
               placeholder="Message"
+              class="form-input"
+              style="resize: none"
             >
             </textarea>
-            <input   type="submit" value="Send" />
+            <input type="submit" value="Send" class="form-input" />
           </form>
         </div>
         <!-- <div
@@ -407,10 +414,10 @@
           </form>
         </div> -->
       </div>
-     
     </section>
 
-    <section>
+    <!-- FOOTER SECTION -->
+    <section style="margin-top: 2em">
       <v-footer padless class="custom-footer" v-show="footerShow || isMobile">
         <v-row justify="center" no-gutters>
           <v-col
@@ -453,7 +460,7 @@ export default {
     UglySVGs: UglySVGs,
   },
   data: () => ({
-    show: false,
+    show: true,
     footerShow: false,
     scrolled: false,
     appbarShow: true,
@@ -542,7 +549,7 @@ export default {
 
     onScroll() {
       console.log("is it mobile?:%o", this.isMobile);
-
+      console.log("showing:%o", this.show);
       var pos = window.scrollY;
       // console.log("document.getElementById(appbar)", document.getElementById("appbar"))
 
@@ -583,17 +590,17 @@ export default {
 
       setTimeout(() => {
         // Any code to be executed when the window is scrolled
-        if (this.isMobile) {
-          if (window.scrollY > 100) {
-            this.footerShow = true;
-          }
-
-          if (!this.scrolled && window.scrollY > 500) {
-            this.show = !this.show;
-            this.footerShow = true;
-            this.scrolled = true;
-          }
+        // if (this.isMobile) {
+        if (window.scrollY > 100) {
+          this.footerShow = true;
         }
+
+        if (!this.scrolled && window.scrollY > 500) {
+          this.show = true;
+          this.footerShow = true;
+          this.scrolled = true;
+        }
+        // }
       }, 200);
     },
 
@@ -602,7 +609,7 @@ export default {
       this.$refs.appbar.$el.style.position = "fixed";
 
       if (!this.show) {
-        this.show = !this.show;
+        this.show = true;
         this.footerShow = true;
         this.scrolled = true;
       }
@@ -696,9 +703,6 @@ export default {
   margin-bottom: 3em;
 }
 
-.explore-btn {
-}
-
 .intro-section {
   background: #fff;
 }
@@ -735,7 +739,7 @@ export default {
 
 .contact-body {
   margin-top: 1em;
-  height: 67vh;
+  /* height: 67vh; */
 }
 
 .info-value {
@@ -846,8 +850,8 @@ textarea {
 }
 
 input[type="submit"] {
-  background-color: #566bc7;
-  color: white;
+  background-color: white;
+  color:  #566bc7;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
@@ -855,7 +859,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #454ea0;
+  background-color: lightgray;
 }
 
 @media (min-width: 1904px) {
@@ -908,5 +912,9 @@ a {
 .submit-btn {
   background: linear-gradient(to right, #566bc7, #8b62de);
   color: white;
+}
+
+.form-input {
+  background: white;
 }
 </style>

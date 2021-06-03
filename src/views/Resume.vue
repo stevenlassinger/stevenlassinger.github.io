@@ -11,7 +11,7 @@
         style="
           border-bottom: 3px solid #18202b;
           z-index: 5;
-           background: linear-gradient(to right, #566bc7, #8b62de);
+          background: linear-gradient(to right, #566bc7, #8b62de);
         "
         :style="isMobile ? 'padding-left: 0px;' : ''"
       >
@@ -26,14 +26,18 @@
       <header class="mdi-filled font-weight-light mt-10 text-h2 px-3">
         Resume
       </header>
-      <div class="education"  >
+      <div class="education">
         <v-row>
           <v-col cols="12">
-            <v-card class=" card mx-auto" flat>
+            <v-card class="card mx-auto" flat>
               <v-card-title
                 class="font-weight-regular"
-                :class="isMobile ? 'mt-0 pt-0' : 'mt-8' "
-                :style="isMobile ? 'font-size: 1.5rem !important;padding-bottom:0px!important' : 'font-size: 2.525rem !important'"
+                :class="isMobile ? 'mt-0 pt-0' : 'mt-8'"
+                :style="
+                  isMobile
+                    ? 'font-size: 1.5rem !important;padding-bottom:0px!important'
+                    : 'font-size: 2.525rem !important'
+                "
               >
                 Education
               </v-card-title>
@@ -60,7 +64,8 @@
                   </v-col>
                   <v-col cols="4">
                     <v-card
-                     class="text-h5 font-weight-regular " :class="isMobile ? ' py-2 pr-0 pl-2' :'pa-2'"
+                      class="text-h5 font-weight-regular"
+                      :class="isMobile ? ' py-2 pr-0 pl-2' : 'pa-2'"
                       :style="
                         isMobile
                           ? 'font-size: 1rem !important'
@@ -91,13 +96,16 @@
                     </v-card>
                   </v-col>
                   <v-col cols="4">
-                    <v-card  class="text-h5 font-weight-regular " :class="isMobile ? ' py-2 pr-0 pl-2' :'pa-2'"
+                    <v-card
+                      class="text-h5 font-weight-regular"
+                      :class="isMobile ? ' py-2 pr-0 pl-2' : 'pa-2'"
                       :style="
                         isMobile
                           ? 'font-size: 1rem !important'
                           : 'font-size: 1.2rem'
                       "
-                       flat>
+                      flat
+                    >
                       2014 - 2015
                     </v-card>
                   </v-col>
@@ -107,15 +115,19 @@
           </v-col>
         </v-row>
       </div>
-      <v-divider :class="isMobile ? 'mb-0': 'mb-4'"></v-divider>
+      <v-divider :class="isMobile ? 'mb-0' : 'mb-4'"></v-divider>
       <div class="work-experience">
         <v-row>
           <v-col cols="12">
             <v-card class="mx-auto card" flat>
               <v-card-title
                 class="font-weight-regular"
-                :class="isMobile ? 'mt-0 pt-0' : 'mt-8' "
-                :style="isMobile ? 'font-size: 1.5rem !important;padding-bottom:0px!important' : 'font-size: 2.525rem !important'"
+                :class="isMobile ? 'mt-0 pt-0' : 'mt-8'"
+                :style="
+                  isMobile
+                    ? 'font-size: 1.5rem !important;padding-bottom:0px!important'
+                    : 'font-size: 2.525rem !important'
+                "
               >
                 Experience
               </v-card-title>
@@ -123,25 +135,33 @@
                 <v-row no-gutters>
                   <v-col cols="8" class="mb-3 pt-2">
                     <v-card class="" flat>
-                      <div  class="text-h5 font-weight-regular"
-                        :style="isMobile ? 'font-size: 1.1rem !important' : ''">Amches Inc.</div>
-                      <div :style="
+                      <div
+                        class="text-h5 font-weight-regular"
+                        :style="isMobile ? 'font-size: 1.1rem !important' : ''"
+                      >
+                        Amches Inc.
+                      </div>
+                      <div
+                        :style="
                           isMobile
                             ? 'font-size: .9rem !important'
                             : 'font-size: 1.2rem'
                         "
-                         >
+                      >
                         Software Engineer
                       </div>
                     </v-card>
                   </v-col>
-                  <v-col cols="4" :class="isMobile ? 'pt-0' :'pt-2'">
-                    <div class="text-h5 font-weight-regular " :class="isMobile ? ' py-2 px-0 pb-0' :'pa-2'"  
-                    :style="
+                  <v-col cols="4" :class="isMobile ? 'pt-0' : 'pt-2'">
+                    <div
+                      class="text-h5 font-weight-regular"
+                      :class="isMobile ? ' py-2 px-0 pb-0' : 'pa-2'"
+                      :style="
                         isMobile
                           ? 'font-size: 1rem !important'
                           : 'font-size: 1.2rem'
-                      ">
+                      "
+                    >
                       2020 - Present
                     </div>
                     <div
@@ -150,7 +170,7 @@
                           ? 'font-size: 1rem !important'
                           : 'font-size: 1.2rem'
                       "
-                      :class="isMobile ? ' py-0 px-0' :'px-2'"
+                      :class="isMobile ? ' py-0 px-0' : 'px-2'"
                       class="font-weight-medium"
                     >
                       Tech Stack
@@ -158,24 +178,29 @@
                   </v-col>
                   <v-col cols="8">
                     <v-card class="" flat>
-                      <div :style="isMobile ? 'font-size: .9rem' : 'font-size: 1rem'"> Worked onsite at the Laboratory for Telecommunication
-                        Science to support research in mobile phone development.
-                        Developed and maintained both front-end and back-end
-                        capabilities for a property management system which
-                        greatly improved property speeds while also providing
-                        the user with a detailed view of their inventory.
-                        Developed front-end to visualize cellular network
-                        properties in real-time which provides operators with a
-                        realistic, geographical view of a cellular layout based
-                        on location. Developed front-end that enables analysts
-                        with real-time interaction to perform dynamic analysis
-                        on multiple phones simultaneously. Developed a tool to
-                        automate the process of scanning and archiving
-                        information about a phone’s battery.</div>
+                      <div
+                        :style="
+                          isMobile ? 'font-size: .9rem' : 'font-size: 1rem'
+                        "
+                      >
+                        Currently working with a team of UI developers to
+                        develop and maintain the front-end of an RF collections
+                        system. Developed and updated Vue components for the UI.
+                        I've presented code demonstrations during sprint
+                        meetings. I've integrated gRPC into the client which
+                        improved data communication and removed the need for a
+                        restful API within our node server. I've developed a
+                        scalable visualization of real-time RF over a radio
+                        spectrum.
+                      </div>
                     </v-card>
                   </v-col>
                   <v-col cols="4">
-                    <v-card :class="isMobile ? 'px-0' :'px-2'"  :style="isMobile ? 'font-size: .9rem' : 'font-size: 1rem'" flat>
+                    <v-card
+                      :class="isMobile ? 'px-0' : 'px-2'"
+                      :style="isMobile ? 'font-size: .9rem' : 'font-size: 1rem'"
+                      flat
+                    >
                       Vue.js, Docker, Kubernetes MongoDB, Gitlab
                     </v-card>
                   </v-col>
@@ -193,13 +218,16 @@
                       </div>
                     </v-card>
                   </v-col>
-                   <v-col cols="4" :class="isMobile ? 'pt-0' :'pt-2'">
-                    <div class="text-h5 font-weight-regular " :class="isMobile ? ' py-2 px-0 pb-0' :'pa-2'"  
-                    :style="
+                  <v-col cols="4" :class="isMobile ? 'pt-0' : 'pt-2'">
+                    <div
+                      class="text-h5 font-weight-regular"
+                      :class="isMobile ? ' py-2 px-0 pb-0' : 'pa-2'"
+                      :style="
                         isMobile
                           ? 'font-size: 1rem !important'
                           : 'font-size: 1.2rem'
-                      ">
+                      "
+                    >
                       2018 - 2020
                     </div>
                     <div
@@ -208,7 +236,7 @@
                           ? 'font-size: 1rem !important'
                           : 'font-size: 1.2rem'
                       "
-                      :class="isMobile ? ' py-0 px-0' :'px-2'"
+                      :class="isMobile ? ' py-0 px-0' : 'px-2'"
                       class="font-weight-medium"
                     >
                       Tech Stack
@@ -216,7 +244,11 @@
                   </v-col>
                   <v-col cols="8">
                     <v-card class="" flat>
-                      <div :style="isMobile ? 'font-size: .9rem' : 'font-size: 1rem'">
+                      <div
+                        :style="
+                          isMobile ? 'font-size: .9rem' : 'font-size: 1rem'
+                        "
+                      >
                         Worked onsite at the Laboratory for Telecommunication
                         Science to support research in mobile phone development.
                         Developed and maintained both front-end and back-end
@@ -235,7 +267,11 @@
                     </v-card>
                   </v-col>
                   <v-col cols="4">
-                    <v-card :class="isMobile ? 'px-0' :'px-2'"  :style="isMobile ? 'font-size: .9rem' : 'font-size: 1rem'" flat>
+                    <v-card
+                      :class="isMobile ? 'px-0' : 'px-2'"
+                      :style="isMobile ? 'font-size: .9rem' : 'font-size: 1rem'"
+                      flat
+                    >
                       Nodejs, NGINX, Docker, MySQL, Gitlab, Snipe-IT
                     </v-card>
                   </v-col>
