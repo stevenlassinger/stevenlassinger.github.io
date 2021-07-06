@@ -3,20 +3,41 @@
     <div v-if="!isMobile">
       <header class="landing-page">
         <div align="center" class="lp-actions">
-          <div class="welcome font-weight-light">
-            Hello, I'm <font style="color: var(--primaryColor)">Steve</font>.
-            Welcome to my site!
+          <div class="welcome">
+            <font>Steve Lassinger</font> // UI Developer
           </div>
+          <div style="font-size: 2em" class="intro-bio">
+            I've been a <b>UI developer </b>for the past 3 years. I am currently
+            working out of the <b>DC</b>, <b>Maryland</b>, <b>Virginia</b> area.
+            I enjoy building data driven UI's and learning new technologies. Hit
+            <b>explore</b> to learn more about <b>me</b>!
+          </div>
+          <div class="custom-divider"></div>
           <v-btn
-            v-on:click="explore()"
-            class="explore-btn elevation-24"
-            v-scroll-to="{ el: '.intro-section', offset: -50 }"
-            large
-            align="center"
-            elevate-on-scroll="true"
+            v-for="icon in footerIcons"
+            :key="icon.link"
+            class="mx-16 mt-2 white--text"
+            icon
+            :href="icon.link"
+            target="_blank"
           >
-            Explore
+            <v-icon :size="'3em'" class="elevation-24">
+              {{ icon.value }}
+            </v-icon>
           </v-btn>
+          <v-card-actions class="justify-center">
+            <v-btn
+              v-on:click="explore()"
+              class="explore-btn elevation-24"
+              v-scroll-to="{ el: '.intro-section', offset: 1 }"
+              large
+              elevate-on-scroll="true"
+            >
+              <v-icon class="">mdi-chevron-down</v-icon>
+              Explore
+              <v-icon class="">mdi-chevron-down</v-icon>
+            </v-btn>
+          </v-card-actions>
         </div>
       </header>
     </div>
@@ -42,7 +63,7 @@
               ></v-app-bar-nav-icon>
             </v-btn>
           </template>
-          <v-list>
+          <v-list justify="center">
             <v-list-item
               v-for="(item, index) in menu"
               :key="index"
@@ -69,16 +90,17 @@
         style="
           border-bottom: 3px solid #18202b;
           z-index: 5;
+          top: 0px;
           background: linear-gradient(to right, #566bc7, #8b62de);
         "
       >
         <!-- <div class="name-title font-weight-thin ml-4">Steve</div> -->
-        <v-spacer></v-spacer>
+        <!-- <v-spacer></v-spacer> -->
 
         <v-btn
           text
           v-scroll-to="{ el: '.intro-section', offset: -50 }"
-          class="px-2"
+          class="px-3"
         >
           <div class="font-weight-light">About Me</div>
           <v-icon class="pl-1">mdi-account</v-icon>
@@ -86,20 +108,20 @@
         <v-btn
           text
           v-scroll-to="{ el: '.skills-section', offset: -50 }"
-          class="px-2"
+          class="px-3"
         >
           <div class="font-weight-light">Skills</div>
           <v-icon class="pl-1">mdi-code-tags</v-icon>
         </v-btn>
         <v-btn
           text
-          class="px-2"
+          class="px-3"
           v-scroll-to="{ el: '.contact-section', offset: -50 }"
         >
           <div class="font-weight-light">Contact</div>
           <v-icon class="pl-1">mdi-email</v-icon>
         </v-btn>
-        <v-btn text to="/resume" class="px-2"
+        <v-btn text to="/resume" class="px-3"
           >Resume
           <v-icon class="pl-1">mdi-file-document</v-icon>
         </v-btn>
@@ -112,7 +134,6 @@
         :class="!isMobile ? 'container' : ''"
         :style="isMobile ? ' margin-top: 4em;' : ''"
       >
-        <!-- <transition name="slide-from-top"> -->
         <div
           class="text-h3 mb-2 mt-5"
           :class="
@@ -122,11 +143,7 @@
         >
           About Me
         </div>
-        <!-- </transition> -->
-        <!-- <v-divider class="mb-4"></v-divider> -->
-
         <v-row class="ml-0" align="center" justify="center">
-          <!-- <transition name="slide-from-left"> -->
           <v-card
             shadow
             :max-width="isMobile ? mobileWidth : 374"
@@ -170,7 +187,7 @@
               <v-row align="center" class="mx-0">
                 <v-icon class="ml-2 mr-2 mdi-filled">mdi-briefcase</v-icon>
                 <div class="font-weight-bold mr-4 mdi-filled">Company</div>
-                <div class="info-value">Amches, Inc.</div>
+                <div class="info-value">InterImage</div>
               </v-row>
               <v-row align="center" class="mx-0">
                 <v-icon class="ml-2 mr-2 mdi-filled">mdi-map-marker</v-icon>
@@ -199,34 +216,12 @@
           <!-- </transition>
 
           <transition name="slide-from-right"> -->
-          <v-card
-            class="ml-5"
-            v-show="show"
-            style="
-              background: transparent;
-              width: 40em;
-              border: none;
-              box-shadow: none;
-             "
-          >
-            <div style="font-size: 2em" class="font-weight-light">
-              I've been a fontend/UI developer for the past 3 years. I am
-              currently working out of the DC, Maryland, Virginia area. I enjoy
-              building data driven UI's and learning new technologies.
-              <br />
-              <br />
 
-              <!-- In my spare time I enjoy working on side projects, going to the
-              gym and spending time with friends & family. I plan to get into
-              freelance UI work in the near future. -->
-            </div>
-          </v-card>
           <!-- </transition> -->
         </v-row>
       </div>
       <!-- SKILLS SECTION -->
     </section>
-    <!-- SKILLS SECTION -->
     <section class="skills-section">
       <div
         class="skills-body"
@@ -246,83 +241,30 @@
         <v-divider class="mb-4"></v-divider>
 
         <v-row class="ml-0" align="center" justify="center">
-          <v-card
-            shadow
-            :max-width="isMobile ? mobileWidth : 374"
-            class="skills-card"
-            :class="isMobile ? 'mobile-skills-card' : ''"
-            v-show="show"
+          <SkillCard
+            :icons="icons"
+            :show="show"
+            :skills="languages"
+            :isMobile="isMobile"
+            :title="'Langauges'"
           >
-            <v-card-title
-              class="justify-center skills-card-header py-2 font-weight-regular"
-              >Languages
-            </v-card-title>
-
-            <v-card-text class="mt-1 pb-0">
-              <Skills :icon="icons.get('node')"></Skills>
-              <Skills :icon="icons.get('js')"></Skills>
-              <Skills :icon="icons.get('html')"></Skills>
-              <Skills :icon="icons.get('css')"></Skills>
-              <Skills :icon="icons.get('java')"></Skills>
-              <Skills :icon="icons.get('mysql')"></Skills>
-              <UglySVGs :value="'python'"></UglySVGs>
-              <br v-show="!isMobile" />
-            </v-card-text>
-          </v-card>
-          <v-card
-            shadow
-            :max-width="isMobile ? mobileWidth : 374"
-            class="skills-card"
-            :class="isMobile ? 'mobile-skills-card' : ''"
-            v-show="show"
+          </SkillCard>
+          <SkillCard
+            :icons="icons"
+            :skills="frameworks"
+            :show="show"
+            :isMobile="isMobile"
+            :title="'Frameworks/Design'"
           >
-            <v-card-title
-              class="justify-center skills-card-header py-2 font-weight-regular"
-              >Frameworks/Design
-            </v-card-title>
-
-            <v-card-text class="mt-1 pb-0">
-              <Skills :icon="icons.get('bootstrap')"></Skills>
-              <Skills :icon="icons.get('jquery')"></Skills>
-              <Skills :icon="icons.get('vue')"></Skills>
-              <Skills :icon="icons.get('materialui')"></Skills>
-              <br v-show="!isMobile" />
-              <br v-show="!isMobile" />
-              <br v-show="!isMobile" />
-              <br v-show="!isMobile" />
-              <br v-show="!isMobile" />
-              <br v-show="!isMobile" />
-              <br v-show="!isMobile" />
-            </v-card-text>
-          </v-card>
-          <!-- </v-col> -->
-          <!-- <v-col cols="2" class="" > </v-col> -->
-          <!-- <v-col cols="6" class=""> -->
-          <!-- <div class="spacer" style="display: inline-block; width: 2rem"></div> -->
-          <v-card
-            shadow
-            :max-width="isMobile ? mobileWidth : 374"
-            class="skills-card"
-            :class="isMobile ? 'mobile-skills-card' : ''"
-            v-show="show"
-            height="100%"
+          </SkillCard>
+          <SkillCard
+            :icons="icons"
+            :skills="development"
+            :show="show"
+            :isMobile="isMobile"
+            :title="'Development'"
           >
-            <v-card-title
-              class="justify-center skills-card-header py-2 font-weight-regular"
-              >Development
-            </v-card-title>
-            <v-card-text>
-              <UglySVGs :value="'docker'"></UglySVGs>
-              <Skills :icon="icons.get('git')"></Skills>
-              <Skills :icon="icons.get('vscode')"></Skills>
-              <Skills :icon="icons.get('linux')"></Skills>
-              <UglySVGs :value="'jira'"></UglySVGs>
-              <Skills :icon="icons.get('nginx')"></Skills>
-              <Skills :icon="icons.get('webpack')"></Skills>
-              <div v-show="!isMobile" style="padding-bottom: 11px"></div>
-            </v-card-text>
-          </v-card>
-          <!-- </v-col>-->
+          </SkillCard>
         </v-row>
       </div>
     </section>
@@ -383,36 +325,6 @@
             <input type="submit" value="Send" class="form-input" />
           </form>
         </div>
-        <!-- <div
-          class="elevation-3 mt-8"
-          :class="isMobile ? 'mobile-form-container' : 'container1'"
-        >
-          <form @submit.prevent="sendEmail">
-            <v-text-field
-              v-model="name"
-              :counter="50"
-              name="name"
-              label="Name"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="email"
-              name="email"
-              :counter="50"
-              :rules="emailRules"
-              label="E-mail"
-              required
-            ></v-text-field>
-            <v-textarea
-              name="message"
-              filled
-              label="Message"
-              v-model="message"
-              required
-            ></v-textarea>
-            <v-btn class="mr-4 submit-btn" type="submit"> submit </v-btn>
-          </form>
-        </div> -->
       </div>
     </section>
 
@@ -445,8 +357,10 @@
 </template>
 
 <script>
-import Skills from "../components/skill.vue";
-import UglySVGs from "../components/uglySVGs.vue";
+// import Skills from "../components/skill.vue";
+// import UglySVGs from "../components/uglySVGs.vue";
+import SkillCard from "../components/skillCard.vue";
+
 import emailjs from "emailjs-com";
 import { init } from "emailjs-com";
 import Icons from "../icons.js";
@@ -456,14 +370,15 @@ init("user_LqMtDg5AaLF8MBBzUXPtA");
 export default {
   name: "Home",
   components: {
-    Skills: Skills,
-    UglySVGs: UglySVGs,
+    // Skills: Skills,
+    // UglySVGs: UglySVGs,
+    SkillCard: SkillCard,
   },
   data: () => ({
     show: true,
     footerShow: false,
     scrolled: false,
-    appbarShow: true,
+    appbarShow: false,
     windowHeight: 0,
     icons: Icons.getIcons(),
     name: "",
@@ -513,10 +428,43 @@ export default {
     ],
     navPos: null,
     lastPos: 0,
-  }),
 
+    languages: [
+      { value: "js", isUgly: false, data: {} },
+      { value: "css", isUgly: false, data: {} },
+      { value: "html", isUgly: false, data: {} },
+      { value: "java", isUgly: false, data: {} },
+      { value: "mysql", isUgly: false, data: {} },
+      { value: "python", isUgly: true, data: "python" },
+      { empty: true },
+      { empty: true },
+    ],
+
+    frameworks: [
+      { value: "bootstrap", isUgly: false, data: {} },
+      { value: "jquery", isUgly: false, data: {} },
+      { value: "vue", isUgly: false, data: {} },
+      { value: "materialui", isUgly: false, data: {} },
+      { empty: true },
+      { empty: true },
+      { empty: true },
+      { empty: true },
+      { empty: true },
+      { empty: true },
+    ],
+    development: [
+      { value: "docker", isUgly: true, data: "docker" },
+      { value: "git", isUgly: false, data: {} },
+      { value: "vscode", isUgly: false, data: {} },
+      { value: "linux", isUgly: false, data: {} },
+      { value: "nginx", isUgly: false, data: {} },
+      { value: "webpack", isUgly: true, data: "python" },
+      { value: "jira", isUgly: true, data: "jira" },
+    ],
+  }),
   mounted() {
     console.log("IS IT MOBILE ON MOUNT", this.isMobile);
+    console.log("this this.appbarShow:%o", this.appbarShow);
     if (this.isMobile) {
       this.show = true;
       var x = document.querySelector("meta");
@@ -525,6 +473,7 @@ export default {
     }
 
     this.navPos = document.getElementById("appbar").offsetTop;
+    console.log("this:%o", this);
     this.icons = Icons.getIcons();
 
     if (!this.isMobile) {
@@ -548,33 +497,42 @@ export default {
     },
 
     onScroll() {
-      console.log("is it mobile?:%o", this.isMobile);
-      console.log("showing:%o", this.show);
       var pos = window.scrollY;
       // console.log("document.getElementById(appbar)", document.getElementById("appbar"))
+      // console.log(
+      //   "position:%o,last position:%o, appbar height offset:%o, navPosition:%o",
+      //   pos,
+      //   this.lastPos,
+      //   document.getElementById("appbar").offsetHeight,
+      //   this.navPos
+      // );
 
-      if (
-        pos >= this.navPos + document.getElementById("appbar").offsetHeight &&
-        this.lastPos < pos
-      ) {
-        if (!document.getElementById("appbar").classList.contains("fixed")) {
-          document.getElementById("appbar").className += " " + "fixed";
-          document.getElementById("appbar").classList.remove("relative");
-        }
-        document.getElementById("appbar").style.position = "fixed";
-        this.appbarShow = true;
-      }
+      document.getElementById("appbar").style.position = "relative";
 
-      if (pos < this.navPos && this.lastPos > pos) {
-        if (!document.getElementById("appbar").classList.contains("relative")) {
-          document.getElementById("appbar").className += " " + "relative";
-          document.getElementById("appbar").classList.remove("fixed");
-        }
-        document.getElementById("appbar").style.position = "relative";
+      // if (
+      //   pos >= this.navPos + document.getElementById("appbar").offsetHeight &&
+      //   this.lastPos < pos
+      // ) {
+      //   if (!document.getElementById("appbar").classList.contains("fixed")) {
+      //     document.getElementById("appbar").className += " " + "fixed";
+      //     document.getElementById("appbar").classList.remove("relative");
+      //   }
+      //   document.getElementById("appbar").style.position = "fixed";
+      //   console.log("FIXED");
+      //   this.appbarShow = true;
+      // }
 
-        this.appbarShow = false;
-        this.appbarShow = true;
-      }
+      // if (pos < this.navPos && this.lastPos > pos) {
+      //   if (!document.getElementById("appbar").classList.contains("relative")) {
+      //     document.getElementById("appbar").className += " " + "relative";
+      //     document.getElementById("appbar").classList.remove("fixed");
+      //   }
+      //   console.log("RELVATIVE");
+      //   document.getElementById("appbar").style.position = "relative";
+
+      //   // this.appbarShow = false;
+      //   this.appbarShow = true;
+      // }
 
       this.lastPos = pos;
 
@@ -649,6 +607,23 @@ export default {
 </script>
 
 <style scoped>
+.custom-divider {
+  margin: 20px 0;
+  margin: 25px 0;
+  width: 50%;
+  height: 1px;
+  border: 0;
+  background: black;
+  background: -webkit-gradient(
+    linear,
+    0 0,
+    100% 0,
+    from(transparent),
+    to(transparent),
+    color-stop(50%, gray)
+  );
+}
+
 /* MOBILE */
 .mobile-header {
   text-align: center;
@@ -694,13 +669,28 @@ export default {
 
 .lp-actions {
   width: 100%;
-  transform: translatey(30%);
+  transform: translatey(19%);
 }
 
 .welcome {
   color: var(--primaryTextColor);
-  font-size: 3em;
-  margin-bottom: 3em;
+  font-size: 6em;
+  font-weight: 600;
+  text-shadow: 17px 5px 16px black;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.intro-bio {
+  color: white;
+  font-weight: 200;
+  width: 63%;
+  /* font-family: */
+}
+
+.explore-btn {
+  position: absolute;
+  bottom: 25%;
 }
 
 .intro-section {
@@ -851,7 +841,7 @@ textarea {
 
 input[type="submit"] {
   background-color: white;
-  color:  #566bc7;
+  color: #566bc7;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;

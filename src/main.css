@@ -20,3 +20,8 @@ body{
  {
  outline:none!important;
  }
+
+ .v-toolbar__content{
+  align-content: stretch!important;
+    justify-content: center!important;
+}

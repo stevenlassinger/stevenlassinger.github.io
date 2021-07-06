@@ -1,7 +1,6 @@
 
 export default {
     getIcons: () => {
-        console.log("yo get icons");
         let icons = new Map();
 
         //HTML
@@ -142,5 +141,6 @@ export default {
         
         return icons;
 
-    }
+    },
+
 }
