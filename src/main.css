@@ -6,7 +6,10 @@
 body{
     overflow-x: hidden!important;
 }
-
+.fb-hover {
+  color: 'blue' !important;
+  background: 'red'!important;
+}
 :root {
   /* --primaryColor: #566bc7; */
   --primaryColor: linear-gradient(to right, #566bc7 , #8b62de);

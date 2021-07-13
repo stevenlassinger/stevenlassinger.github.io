@@ -13,54 +13,18 @@
             <b>explore</b> to learn more about <b>me</b>!
           </div>
           <div class="custom-divider"></div>
-           <v-hover v-slot:default="{ hover }">
-            <v-btn
-              class="mx-16 mt-2 white--text"
-              icon
-              :class="hover ? 'fb-hover' : ''"
-              :href="'https://www.facebook.com/steven.lassinger'"
-              target="_blank"
-            >
-              <v-icon
-                :size="'3em'"
-                class="elevation-24"
-              >
-                {{ "mdi-facebook" }}
-              </v-icon>
-            </v-btn>
-          </v-hover>
-          <v-hover v-slot:default="{ hover }">
-            <v-btn
-              class="mx-16 mt-2 white--text"
-              icon
-              :class="hover ? 'linkedin-hover' : ''"
-              :href="'https://www.linkedin.com/public-profile/in/steven-lassinger-b81339157?challengeId=AQEIhWYjpnCbIAAAAXdWrjwEyZT27iYWOiYHGB0ICJqlrM4GidKbFVBgwZE-Jy7juQSXk1nVZL2S0JWjwg3-PPD8PZZ2-UMFDg&submissionId=4817940b-6436-5f16-4ea5-3bc4d589850c'"
-              target="_blank"
-            >
-              <v-icon
-                :size="'3em'"
-                class="elevation-24 "
-              >
-                {{ "mdi-linkedin" }}
-              </v-icon>
-            </v-btn>
-          </v-hover> ]
-          <v-hover v-slot:default="{ hover }">
-            <v-btn
-              class="mx-16 mt-2 white--text"
-              :class="hover ? 'github-hover' : ''"
-              icon
-              :href="'https://github.com/stevenlassinger'"
-              target="_blank"
-            >
-              <v-icon
-                :size="'3em'"
-                class="elevation-24"
-              >
-                {{ "mdi-github" }}
-              </v-icon>
-            </v-btn>
-          </v-hover> 
+          <v-btn
+            v-for="icon in footerIcons"
+            :key="icon.link"
+            class="mx-16 mt-2 white--text"
+            icon
+            :href="icon.link"
+            target="_blank"
+          >
+            <v-icon :size="'3em'" class="elevation-24">
+              {{ icon.value }}
+            </v-icon>
+          </v-btn>
           <v-card-actions class="justify-center">
             <v-btn
               v-on:click="explore()"
@@ -201,7 +165,7 @@
               style="border-bottom: 3px solid rgb(24, 32, 43)"
               position="center center"
               height="28vh"
-              src="../assets/bmoreAvatar.jpeg"
+              src="../assets/avatar2.jpg"
             ></v-img>
             <v-card-title>
               <div class="font-weight-regular" style="display: inline">
@@ -406,6 +370,8 @@ init("user_LqMtDg5AaLF8MBBzUXPtA");
 export default {
   name: "Home",
   components: {
+    // Skills: Skills,
+    // UglySVGs: UglySVGs,
     SkillCard: SkillCard,
   },
   data: () => ({
@@ -641,17 +607,6 @@ export default {
 </script>
 
 <style scoped>
-.github-hover {
-  color:#bbb!important 
-}
-
-.fb-hover {
-  color: #3b5998!important 
-}
-
-.linkedin-hover {
-  color:#0E76A8!important 
-}
 .custom-divider {
   margin: 20px 0;
   margin: 25px 0;

@@ -1,5 +1,8 @@
 <template>
-
+<v-parallax
+    dark
+    src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+  >
   <v-app v-on:scroll.passive="onScroll">
     <div>
       <!-- v-if="!isMobile" -->
@@ -284,7 +287,7 @@
       </div>
     </div>
   </v-app>
-  
+   </v-parallax>
 </template>
 
 <script>
