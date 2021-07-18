@@ -119,8 +119,7 @@
           border-bottom: 3px solid #18202b;
           z-index: 5;
           top: 0px;
-          background: linear-gradient(to right, #566bc7, #8b62de);
-          background: #162129;
+           background: #162129;
         "
       >
         <!-- <div class="name-title font-weight-thin ml-4">Steve</div> -->
@@ -830,6 +829,7 @@ export default {
   },
 
   mounted() {
+    
     //wait for node server
 
     // this.getSpotify().then((res) => {
@@ -840,14 +840,13 @@ export default {
     //     this.spotifyInfo = res;
     //   });
     // }, 60000);
-
-    // console.log("IS IT MOBILE ON MOUNT", this.isMobile);
-    // console.log("this this.appbarShow:%o", this.appbarShow);
+ 
     if (this.isMobile) {
-      this.show = true;
-      var x = document.querySelector("meta");
-      x.content = "width=device-width, initial-scale=1 ";
-      this.appbarShow = false;
+      this.$router.push('MobileNotice') ;
+      // this.show = true;
+      // var x = document.querySelector("meta");
+      // x.content = "width=device-width, initial-scale=1 ";
+      // this.appbarShow = false;
     }
 
     this.navPos = document.getElementById("appbar").offsetTop;
