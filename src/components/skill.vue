@@ -12,8 +12,8 @@
     </v-col>
     <v-col
       cols="3"
-      class="pl-3 pt-2 font-weight-bold font-italic"
-      style="color: black; display: inline-flex"
+      class="pl-3 pt-2 font-weight-bold font-italic skill-name-dark"
+      style=" display: inline-flex"
     >
       {{ icon.value }}
     </v-col>
@@ -33,20 +33,20 @@
       <div class="rectangle mr-1"></div>
     </v-col>
 
-    <v-col v-if="icon.level == 1" cols="4" class="font-weight-bold pt-2">
+    <v-col v-if="icon.level == 1" cols="4" class="font-weight-bold pt-2 level-dark">
       proficient
     </v-col>
     <v-col
       v-else-if="icon.level == 2"
       cols="4"
-      class="font-weight-bold pt-2"
+      class="font-weight-bold pt-2 level-dark"
     >
       intermediate
     </v-col>
     <v-col
       v-else-if="icon.level == 3"
       cols="4"
-      class="font-weight-bold pt-2"
+      class="font-weight-bold pt-2 level-dark"
     >
       novice
     </v-col>
@@ -56,15 +56,12 @@
 <script>
 export default {
   name: "Skills",
-  
   props: {
     icon: {
       type: Object,
       required: true,
     },
   },
-
-  methods: {},
 };
 </script>
 
@@ -92,5 +89,13 @@ export default {
 
 .novice {
   background-color: rgb(224 138 67);
+}
+
+.level-dark{
+  color:white;
+}
+
+.skill-name-dark{
+  color: white;
 }
 </style>

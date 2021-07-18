@@ -28,3 +28,7 @@ body{
   align-content: stretch!important;
     justify-content: center!important;
 }
+.resume>.v-toolbar__content{
+  justify-content: end!important;
+
+}

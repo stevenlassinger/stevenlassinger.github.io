@@ -45,8 +45,9 @@
     </v-col>
     <v-col
       cols="3"
-      class="pl-3 pt-2 font-weight-bold font-italic"
-      style="color: black; display: inline-flex"
+      class="pl-3 pt-2 font-weight-bold font-italic skill-name-dark"
+      style="display: inline-flex"
+      
     >
       Jira
     </v-col>
@@ -55,7 +56,7 @@
       <div class="rectangle mr-1"></div>
       <div class="rectangle mr-1"></div>
     </v-col>
-    <v-col cols="4" class="font-weight-bold pt-2"> novice </v-col>
+    <v-col cols="4" class="font-weight-bold pt-2 level-dark"> novice </v-col>
   </v-row>
 
   <v-row no-gutters v-else-if="icon_data == 'docker'">
@@ -151,8 +152,9 @@
     </v-col>
     <v-col
       cols="3"
-      class="pl-3 pt-2 font-weight-bold font-italic"
-      style="color: black; display: inline-flex"
+      class="pl-3 pt-2 font-weight-bold font-italic skill-name-dark"
+      style="display: inline-flex"
+      
     >
       Docker
     </v-col>
@@ -161,7 +163,7 @@
       <div class="rectangle intermediate mr-1"></div>
       <div class="rectangle mr-1"></div>
     </v-col>
-    <v-col cols="4" class="font-weight-bold pt-2"> intermediate </v-col>
+    <v-col cols="4" class="font-weight-bold pt-2 level-dark"> intermediate </v-col>
   </v-row>
 
   <v-row no-gutters v-else-if="icon_data == 'python'">
@@ -220,8 +222,8 @@
     </v-col>
     <v-col
       cols="3"
-      class="pl-3 pt-2 font-weight-bold font-italic"
-      style="color: black; display: inline-flex"
+      class="pl-3 pt-2 font-weight-bold font-italic skill-name-dark"
+      style="display: inline-flex"
     >
       Python
     </v-col>
@@ -230,7 +232,7 @@
       <div class="rectangle mr-1"></div>
       <div class="rectangle mr-1"></div>
     </v-col>
-    <v-col cols="4" class="font-weight-bold pt-2"> novice </v-col>
+    <v-col cols="4" class="font-weight-bold pt-2 level-dark"> novice </v-col>
   </v-row>
 </template>
 
@@ -282,5 +284,13 @@ export default {
 
 .novice {
   background-color: rgb(224 138 67);
+}
+
+.skill-name-dark {
+  color: white;
+}
+
+.level-dark {
+  color:white;
 }
 </style>

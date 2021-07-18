@@ -12,9 +12,10 @@
         style="
           border-bottom: 3px solid #18202b;
           z-index: 5;
-          background: linear-gradient(to right, #566bc7, #8b62de);
-        "
+          background: #162129;
+          justify-content: end;!important"
         :style="isMobile ? 'padding-left: 0px;' : ''"
+        class="resume"
       >
         <v-btn class="mb-2" text color="var(--primaryColor)">
           <router-link to="/">
