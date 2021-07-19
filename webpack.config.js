@@ -31,7 +31,9 @@ module.exports = {
     plugins: [
       new CopyPlugin({
         patterns: [
-          { from: "public/updatedResume.pdf", to: "dist" },
+          { 
+            from: "public/resume.pdf", to: "dist"
+          },
          ],
       }),
      
