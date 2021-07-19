@@ -13,7 +13,7 @@
     <v-col
       cols="3"
       class="pl-3 pt-2 font-weight-bold font-italic skill-name-dark"
-      style=" display: inline-flex"
+      style="display: inline-flex"
     >
       {{ icon.value }}
     </v-col>
@@ -33,7 +33,11 @@
       <div class="rectangle mr-1"></div>
     </v-col>
 
-    <v-col v-if="icon.level == 1" cols="4" class="font-weight-bold pt-2 level-dark">
+    <v-col
+      v-if="icon.level == 1"
+      cols="4"
+      class="font-weight-bold pt-2 level-dark"
+    >
       proficient
     </v-col>
     <v-col
@@ -76,26 +80,27 @@ export default {
   display: inline-flex;
   border-radius: 3px;
   background-color: gray;
-  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 30%);
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 30%);
 }
 
 .proficient {
-  background-color:rgb(105 230 105);
+  background-color: rgb(105 230 105);
 }
 
 .intermediate {
-  background-color:rgb(212 214 92);
+  background-color: rgb(212 214 92);
 }
 
 .novice {
   background-color: rgb(224 138 67);
 }
 
-.level-dark{
-  color:white;
+.level-dark {
+  color: white;
 }
 
-.skill-name-dark{
+.skill-name-dark {
   color: white;
 }
 </style>

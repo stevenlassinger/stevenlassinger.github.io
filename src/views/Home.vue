@@ -37,7 +37,6 @@
               </v-icon>
             </v-btn>
           </v-hover>
-          ]
           <v-hover v-slot:default="{ hover }">
             <v-btn
               class="mx-16 mt-2 white--text"
@@ -119,7 +118,7 @@
           border-bottom: 3px solid #18202b;
           z-index: 5;
           top: 0px;
-           background: #162129;
+          background: #162129;
         "
       >
         <!-- <div class="name-title font-weight-thin ml-4">Steve</div> -->
@@ -254,7 +253,11 @@
           <v-card flat color="transparent" width="525">
             <v-card-title
               class="pl-2"
-              style="font-size: 2em; color: white !important;     font-family: eurostile, sans-serif !important;"
+              style="
+                font-size: 2em;
+                color: white !important;
+                font-family: eurostile, sans-serif !important;
+              "
               >I'm Steve Lassinger</v-card-title
             >
             <v-card-text class="pl-0">
@@ -350,7 +353,7 @@
                 class="ma-2"
                 style="color: rgb(32, 202, 92) !important"
                 outlined
-                href="./updatedResume.pdf"
+                href="./resume.pdf"
                 download
               >
                 <div style="color: white !important; text-transform: none">
@@ -397,7 +400,7 @@
             :boxShadow="'box-shadow: 0px 0px 10px black!important;'"
           >
           </SkillCard>
-          <v-divider class="divider"  vertical></v-divider>
+          <v-divider class="divider" vertical></v-divider>
           <SkillCard
             :icons="icons"
             :skills="frameworks"
@@ -408,7 +411,7 @@
             :boxShadow="'box-shadow: 0px 0px 10px black!important;'"
           >
           </SkillCard>
-          <v-divider class="divider"  vertical></v-divider>
+          <v-divider class="divider" vertical></v-divider>
           <SkillCard
             :icons="icons"
             :skills="development"
@@ -813,8 +816,8 @@ export default {
       },
       {
         value: "webpack",
-        isUgly: true,
-        data: "python",
+        isUgly: false,
+        data: {},
       },
       {
         value: "jira",
@@ -829,7 +832,6 @@ export default {
   },
 
   mounted() {
-    
     //wait for node server
 
     // this.getSpotify().then((res) => {
@@ -840,9 +842,9 @@ export default {
     //     this.spotifyInfo = res;
     //   });
     // }, 60000);
- 
+
     if (this.isMobile) {
-      this.$router.push('MobileNotice') ;
+      this.$router.push("MobileNotice");
       // this.show = true;
       // var x = document.querySelector("meta");
       // x.content = "width=device-width, initial-scale=1 ";
@@ -861,8 +863,8 @@ export default {
     }
     window.onresize = () => {
       this.isMobile = window.innerWidth < 480;
-      console.log("ismobile:%o", this.isMobile);
-      console.log("window.innerWidth" + window.innerWidth);
+      // console.log("ismobile:%o", this.isMobile);
+      // console.log("window.innerWidth" + window.innerWidth);
     };
   },
 
@@ -896,13 +898,12 @@ export default {
         }
       );
 
-      console.log("res:%o", res);
 
-      console.log(
-        "currently listenting to?:%o  by: %o",
-        res.data.item.name,
-        res.data.item.artists[0].name
-      );
+      // console.log(
+      //   "currently listenting to?:%o  by: %o",
+      //   res.data.item.name,
+      //   res.data.item.artists[0].name
+      // );
       return res.data.item.name + " by" + getArtists(res.data.item.artists);
     },
 
@@ -983,9 +984,9 @@ export default {
       }
     },
     sendEmail(e) {
-      console.log(this.name);
-      console.log(this.email);
-      console.log(this.message);
+      // console.log(this.name);
+      // console.log(this.email);
+      // console.log(this.message);
 
       emailjs
         .sendForm(

@@ -55,8 +55,8 @@ export default {
   },
   data: () => ({
     skillsData: [],
-    yo: "../assets/develop-icon-3.jpg",
   }),
+ 
 
   props: {
     icons: {
@@ -129,7 +129,7 @@ export default {
   margin-left: auto;
   margin-right: auto;
   display: inline-block;
-  width: 30em;
+  width: 28em;
   height: 41em;
   /* margin-right: 10px; */
 }
