@@ -1,6 +1,5 @@
 <template>
-  <div 
->
+  <div  style="height: 45.5em;"  >
     <v-card
       shadow
       :max-width="isMobile ? mobileWidth : 700"
