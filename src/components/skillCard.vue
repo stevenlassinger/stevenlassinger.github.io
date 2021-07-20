@@ -1,13 +1,13 @@
 <template>
-  <div       :style="boxShadow"
+  <div 
 >
     <v-card
       shadow
       :max-width="isMobile ? mobileWidth : 700"
-      class="skills-card-dark "
+      class="skills-card-dark elevation-10"
       :class="isMobile ? 'mobile-skills-card' : ''"
       v-show="show"
-      flat
+      style="height: 45.5em;"  
     >
       <div
         class="justify-center"

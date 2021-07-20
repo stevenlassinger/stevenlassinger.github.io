@@ -274,7 +274,7 @@
                   >
                     Email
                   </div>
-                  <div style="display: inline-flex; color: white">
+                  <div style="display: inline-flex; color: #dad8d8">
                     slassinger@yahoo.com
                   </div>
                 </v-col>
@@ -629,8 +629,7 @@
 </template>
 
 <script>
-// import Skills from "../components/skill.vue";
-// import UglySVGs from "../components/uglySVGs.vue";
+
 import SkillCard from "../components/skillCard.vue";
 
 import emailjs from "emailjs-com";
@@ -713,6 +712,11 @@ export default {
         data: {},
       },
       {
+        value: "node",
+        isUgly: false,
+        data: {},
+      },
+      {
         value: "css",
         isUgly: false,
         data: {},
@@ -728,6 +732,11 @@ export default {
         data: {},
       },
       {
+        value: "c",
+        isUgly: false,
+        data: {},
+      },
+      {
         value: "mysql",
         isUgly: false,
         data: {},
@@ -737,14 +746,13 @@ export default {
         isUgly: true,
         data: "python",
       },
-      {
+       {
         empty: true,
       },
-      {
+       {
         empty: true,
       },
     ],
-
     frameworks: [
       {
         value: "bootstrap",
@@ -766,27 +774,7 @@ export default {
         isUgly: false,
         data: {},
       },
-      {
-        empty: true,
-      },
-      {
-        empty: true,
-      },
-      {
-        empty: true,
-      },
-      {
-        empty: true,
-      },
-      {
-        empty: true,
-      },
-      {
-        empty: true,
-      },
-      {
-        empty: true,
-      },
+     
     ],
     development: [
       {
@@ -824,16 +812,19 @@ export default {
         isUgly: true,
         data: "jira",
       },
+     
     ],
     spotifyInfo: "not playing",
   }),
   beforeCreate() {
     this.icons = Icons.getIcons();
+
   },
 
   mounted() {
     //wait for node server
-
+    console.log("icons:%o",JSON.parse(JSON.stringify(this.icons)))
+    console.log("idk:%o", Icons.getIcons())
     // this.getSpotify().then((res) => {
     //   this.spotifyInfo = res;
     // });
@@ -1174,8 +1165,8 @@ export default {
 
 .is-body {
   margin-top: 10em !important;
-  margin-bottom: 18em;
-}
+    margin-bottom: 22em;
+    }
 
 .contact-body {
   margin-top: 1em;
