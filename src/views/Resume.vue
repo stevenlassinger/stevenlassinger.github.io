@@ -203,7 +203,7 @@
                       :style="isMobile ? 'font-size: .9rem' : 'font-size: 1rem'"
                       flat
                     >
-                      Vue.js, Docker, Kubernetes MongoDB, Gitlab
+                      Vue.js, Docker, Kubernetes, MongoDB, Gitlab
                     </v-card>
                   </v-col>
                 </v-row>
